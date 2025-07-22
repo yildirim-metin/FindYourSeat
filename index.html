@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan de Table Mariage</title>
+  <meta name="description" content="Trouvez votre table de mariage en tapant votre nom." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-root">
+    <header class="app-header">
+      <h1 id="app-title" class="dancing-script-alicia">Bienvenue au Mariage de </h1>
+      <h1 id="app-title" class="dancing-script-alicia">Metin 💍 Alicia</h1>
+      <p class="app-subtitle">Tapez votre nom pour trouver votre table.</p>
+    </header>
+
+    <section class="search-section" aria-labelledby="search-label">
+      <label id="search-label" class="sr-only" for="search-input">Rechercher votre nom</label>
+      <input
+        id="search-input"
+        class="search-input"
+        type="text"
+        placeholder="Votre nom..."
+        autocomplete="off"
+        inputmode="text"
+      />
+      <button id="search-btn" class="btn-primary" type="button">Chercher</button>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+
+    <footer class="app-footer">
+      <button id="show-all-btn" class="btn-link" type="button">Voir la liste complète (organisateurs)</button>
+      <div id="all-list-wrapper" class="all-list-wrapper hidden"></div>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
