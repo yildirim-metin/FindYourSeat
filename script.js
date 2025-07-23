@@ -10,15 +10,15 @@
 
 // ======== Utils ========
 function normalize(str) {
-  return (str || "")
-    .normalize("NFD")               // sépare accents
-    .replace(/\p{Diacritic}+/gu, "") // retire accents
-    .toLowerCase()
-    .trim();
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase();
 }
 
 function fullName(g) {
-  return `${g.prenom ?? ''} ${g.nom ?? ''}`.trim();
+  return `${g.prenom ?? ''}`.trim();
 }
 
 function matchesGuest(guest, queryNorm) {
@@ -38,20 +38,46 @@ const allListWrapper = document.getElementById('all-list-wrapper');
 let GUESTS = [];
 let DATA_LOADED = false;
 
+// Parse CSV "à la main"
+function parseCSV(text) {
+  text = text.replace(/^\uFEFF/, ''); // enlève BOM
+  const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
+  if (lines.length === 0) return [];
+
+  const headers = lines.shift().split(',').map(h => h.trim());
+
+  const iPrenom  = headers.findIndex(h => h.toLowerCase().includes('pr'));
+  const iConfirm = headers.findIndex(h => h.toLowerCase().includes('confirm'));
+  const iTable   = headers.findIndex(h => h.toLowerCase().includes('table'));
+
+  return lines.map(line => {
+    const cols = line.split(',');
+    return {
+      prenom:  (cols[iPrenom] || '').trim(),
+      confirme: (cols[iConfirm] || '').trim().toLowerCase(),
+      table:   (cols[iTable] || '').trim(),
+    };
+  });
+}
+
 // ======== Fetch data ========
 async function loadGuests() {
   try {
-    const res = await fetch('guests.json', { cache: 'no-store' });
+    const res = await fetch('guests.csv', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (!Array.isArray(data)) throw new Error('JSON racine doit être un tableau.');
-    GUESTS = data;
+    const text = await res.text();
+
+    GUESTS = parseCSV(text)
+      .filter(g => g.confirme.includes('confirm') || g.confirme === '+' || g.confirme === 'oui')
+      .map(g => ({ prenom: g.prenom, table: g.table || '?' }));
+
     DATA_LOADED = true;
   } catch (err) {
-    console.error('Erreur chargement guests.json', err);
-    showMessage("Impossible de charger la liste des invités. Prévenez l'organisation.");
+    console.error('Erreur chargement guests.csv', err);
+    showMessage("Impossible de charger la liste des invités.");
   }
 }
+
 
 // ======== Recherche ========
 function handleSearch() {
