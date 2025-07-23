@@ -17,15 +17,9 @@ function normalize(str) {
     .toLowerCase();
 }
 
-function fullName(g) {
-  return `${g.prenom ?? ''}`.trim();
-}
-
 function matchesGuest(guest, queryNorm) {
-  const fn = normalize(fullName(guest));
   const pren = normalize(guest.prenom);
-  const nom = normalize(guest.nom);
-  return fn.includes(queryNorm) || pren.includes(queryNorm) || nom.includes(queryNorm);
+  return pren.includes(queryNorm);
 }
 
 // ======== DOM refs ========
@@ -42,19 +36,23 @@ let DATA_LOADED = false;
 function parseCSV(text) {
   text = text.replace(/^\uFEFF/, ''); // enlève BOM
   const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
-  if (lines.length === 0) return [];
+  if (lines.length === 0) {
+    console.log('empty parsing csv !!');
+    return [];
+  }
 
   const headers = lines.shift().split(',').map(h => h.trim());
 
-  const iPrenom  = headers.findIndex(h => h.toLowerCase().includes('pr'));
+  const iPrenom = headers.findIndex(h => h.toLowerCase().includes('pr'));
   const iConfirm = headers.findIndex(h => h.toLowerCase().includes('confirm'));
-  const iTable   = headers.findIndex(h => h.toLowerCase().includes('table'));
+  const iTable = headers.findIndex(h => h.toLowerCase().includes('table'));
 
   return lines.map(line => {
     const cols = line.split(',');
+    const confirmeRaw = (cols[iConfirm] || '').trim().toLowerCase();
     return {
       prenom:  (cols[iPrenom] || '').trim(),
-      confirme: (cols[iConfirm] || '').trim().toLowerCase(),
+      confirme: confirmeRaw === 'confirmé',
       table:   (cols[iTable] || '').trim(),
     };
   });
@@ -68,7 +66,7 @@ async function loadGuests() {
     const text = await res.text();
 
     GUESTS = parseCSV(text)
-      .filter(g => g.confirme.includes('confirm') || g.confirme === '+' || g.confirme === 'oui')
+      .filter(g => g.confirme)
       .map(g => ({ prenom: g.prenom, table: g.table || '?' }));
 
     DATA_LOADED = true;
@@ -118,7 +116,7 @@ function renderGuestCard(guest, highlight=false) {
   div.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') showGuestTable(guest); });
 
   const h2 = document.createElement('h2');
-  h2.textContent = fullName(guest) || '(Invité)';
+  h2.textContent = guest.prenom || '(Invité)';
   const p = document.createElement('p');
   p.textContent = `Table ${guest.table ?? '?'}${guest.place ? ` • Place ${guest.place}` : ''}`;
 
@@ -133,7 +131,7 @@ function showGuestTable(guest) {
   div.className = 'result-card result-highlight';
 
   const h2 = document.createElement('h2');
-  h2.textContent = fullName(guest);
+  h2.textContent = guest.prenom;
 
   const p = document.createElement('p');
   p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}${guest.place ? `</strong>, place <strong>${guest.place}` : ''}</strong>.`;
@@ -177,20 +175,18 @@ function renderAllList() {
   tbl.className = 'all-list-table';
 
   const thead = document.createElement('thead');
-  thead.innerHTML = '<tr><th>Prénom</th><th>Nom</th><th>Table</th><th>Place</th></tr>';
+  thead.innerHTML = '<tr><th>Prénom</th><th>Table</th><th>Place</th></tr>';
   tbl.appendChild(thead);
 
   const tbody = document.createElement('tbody');
   const sorted = [...GUESTS].sort((a,b) => {
-    const an = normalize(a.nom), bn = normalize(b.nom);
-    if (an < bn) return -1; if (an > bn) return 1;
     const ap = normalize(a.prenom), bp = normalize(b.prenom);
     if (ap < bp) return -1; if (ap > bp) return 1;
     return 0;
   });
   sorted.forEach(g => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${g.prenom ?? ''}</td><td>${g.nom ?? ''}</td><td>${g.table ?? ''}</td><td>${g.place ?? ''}</td>`;
+    tr.innerHTML = `<td>${g.prenom ?? ''}</td><td>${g.table ?? ''}</td><td>${g.place ?? ''}</td>`;
     tbody.appendChild(tr);
   });
   tbl.appendChild(tbody);
