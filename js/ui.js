@@ -1,27 +1,3 @@
-/* --------------------------------------------------
- * Plan de Table Mariage - script.js
- * --------------------------------------------------
- * - Charge guests.json
- * - Normalise texte (accents, casse)
- * - Recherche par nom/prénom (inclusif)
- * - Gère affichage 0/1/n résultats
- * - Liste complète pour organisateurs
- * -------------------------------------------------- */
-
-// ======== Utils ========
-function normalize(str) {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim()
-    .toLowerCase();
-}
-
-function matchesGuest(guest, queryNorm) {
-  const pren = normalize(guest.prenom);
-  return pren.includes(queryNorm);
-}
-
 // ======== DOM refs ========
 const inputEl = document.getElementById('search-input');
 const btnEl = document.getElementById('search-btn');
@@ -29,55 +5,6 @@ const resultsEl = document.getElementById('results');
 const showAllBtn = document.getElementById('show-all-btn');
 const allListWrapper = document.getElementById('all-list-wrapper');
 
-let GUESTS = [];
-let DATA_LOADED = false;
-
-// Parse CSV "à la main"
-function parseCSV(text) {
-  text = text.replace(/^\uFEFF/, ''); // enlève BOM
-  const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
-  if (lines.length === 0) {
-    console.log('empty parsing csv !!');
-    return [];
-  }
-
-  const headers = lines.shift().split(',').map(h => h.trim());
-
-  const iPrenom = headers.findIndex(h => h.toLowerCase().includes('pr'));
-  const iConfirm = headers.findIndex(h => h.toLowerCase().includes('confirm'));
-  const iTable = headers.findIndex(h => h.toLowerCase().includes('table'));
-
-  return lines.map(line => {
-    const cols = line.split(',');
-    const confirmeRaw = (cols[iConfirm] || '').trim().toLowerCase();
-    return {
-      prenom:  (cols[iPrenom] || '').trim(),
-      confirme: confirmeRaw === 'confirmé',
-      table:   (cols[iTable] || '').trim(),
-    };
-  });
-}
-
-// ======== Fetch data ========
-async function loadGuests() {
-  try {
-    const res = await fetch('guests.csv', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const text = await res.text();
-
-    GUESTS = parseCSV(text)
-      .filter(g => g.confirme)
-      .map(g => ({ prenom: g.prenom, table: g.table || '?' }));
-
-    DATA_LOADED = true;
-  } catch (err) {
-    console.error('Erreur chargement guests.csv', err);
-    showMessage("Impossible de charger la liste des invités.");
-  }
-}
-
-
-// ======== Recherche ========
 function handleSearch() {
   const q = inputEl.value;
   const qNorm = normalize(q);
@@ -87,6 +14,14 @@ function handleSearch() {
   }
   const matches = GUESTS.filter(g => matchesGuest(g, qNorm));
   renderMatches(matches, q);
+}
+
+function showMessage(msg) {
+  resultsEl.innerHTML = '';
+  const div = document.createElement('div');
+  div.className = 'message';
+  div.textContent = msg;
+  resultsEl.appendChild(div);
 }
 
 function renderMatches(matches, rawQuery) {
@@ -144,16 +79,6 @@ function showGuestTable(guest) {
   div.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// ======== Messages ========
-function showMessage(msg) {
-  resultsEl.innerHTML = '';
-  const div = document.createElement('div');
-  div.className = 'message';
-  div.textContent = msg;
-  resultsEl.appendChild(div);
-}
-
-// ======== Liste complète (organisateurs) ========
 function toggleAllList() {
   if (allListWrapper.classList.contains('hidden')) {
     renderAllList();
@@ -192,27 +117,3 @@ function renderAllList() {
   tbl.appendChild(tbody);
   allListWrapper.appendChild(tbl);
 }
-
-// ======== URL param auto-recherche (?q=Nom) ========
-function autoSearchFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get('q');
-  if (q) {
-    inputEl.value = q;
-    handleSearch();
-  }
-}
-
-// ======== Init ========
-window.addEventListener('DOMContentLoaded', async () => {
-  await loadGuests();
-  autoSearchFromURL();
-});
-
-btnEl.addEventListener('click', handleSearch);
-inputEl.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    handleSearch();
-  }
-});
-showAllBtn.addEventListener('click', toggleAllList);
