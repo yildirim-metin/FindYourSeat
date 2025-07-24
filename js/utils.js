@@ -1,4 +1,4 @@
-function normalize(str) {
+export function normalize(str) {
   return str
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -6,7 +6,7 @@ function normalize(str) {
     .toLowerCase();
 }
 
-function matchesGuest(guest, queryNorm) {
+export function matchesGuest(guest, queryNorm) {
   const surname = normalize(guest.prenom);
   return surname.includes(queryNorm);
 }

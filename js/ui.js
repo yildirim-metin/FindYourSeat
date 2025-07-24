@@ -1,11 +1,14 @@
-// ======== DOM refs ========
-const inputEl = document.getElementById('search-input');
-const btnEl = document.getElementById('search-btn');
-const resultsEl = document.getElementById('results');
-const showAllBtn = document.getElementById('show-all-btn');
-const allListWrapper = document.getElementById('all-list-wrapper');
+import { normalize, matchesGuest } from "./utils.js";
+import { GUESTS } from "./data-loader.js";
 
-function handleSearch() {
+// ======== DOM refs ========
+export const inputEl = document.getElementById('search-input');
+export const btnEl = document.getElementById('search-btn');
+export const resultsEl = document.getElementById('results');
+export const showAllBtn = document.getElementById('show-all-btn');
+export const allListWrapper = document.getElementById('all-list-wrapper');
+
+export function handleSearch() {
   const q = inputEl.value;
   const qNorm = normalize(q);
   if (!qNorm) {
@@ -16,7 +19,7 @@ function handleSearch() {
   renderMatches(matches, q);
 }
 
-function showMessage(msg) {
+export function showMessage(msg) {
   resultsEl.innerHTML = '';
   const div = document.createElement('div');
   div.className = 'message';
@@ -34,7 +37,7 @@ function renderMatches(matches, rawQuery) {
     renderGuestCard(matches[0], true);
     return;
   }
-  // Plusieurs résultats
+  
   const p = document.createElement('p');
   p.className = 'message';
   p.textContent = `${matches.length} résultats. Cliquez sur votre nom :`;
@@ -75,11 +78,10 @@ function showGuestTable(guest) {
   div.appendChild(p);
   resultsEl.appendChild(div);
 
-  // Optionnel : faire défiler vers le résultat
   div.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-function toggleAllList() {
+export function toggleAllList() {
   if (allListWrapper.classList.contains('hidden')) {
     renderAllList();
     allListWrapper.classList.remove('hidden');

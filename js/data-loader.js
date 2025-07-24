@@ -1,8 +1,10 @@
-let GUESTS = [];
-let DATA_LOADED = false;
+import { parseCSV } from "./csv-parser.js";
+import { showMessage } from "./ui.js";
 
-// ======== Fetch data ========
-async function loadGuests() {
+export let GUESTS = [];
+export let DATA_LOADED = false;
+
+export async function loadGuests() {
   try {
     const res = await fetch('guests.csv', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

@@ -1,3 +1,6 @@
+import {inputEl, btnEl, handleSearch, toggleAllList, showAllBtn} from './ui.js';
+import { loadGuests } from "./data-loader.js";
+
 function autoSearchFromURL() {
   const params = new URLSearchParams(window.location.search);
   const q = params.get('q');
