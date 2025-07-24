@@ -1,5 +1,6 @@
 import {inputEl, btnEl, handleSearch, toggleAllList, showAllBtn} from './ui.js';
 import { loadGuests } from "./data-loader.js";
+import { renderTables } from './table-plan.js';
 
 function autoSearchFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -13,6 +14,7 @@ function autoSearchFromURL() {
 window.addEventListener('DOMContentLoaded', async () => {
   await loadGuests();
   autoSearchFromURL();
+  renderTables();
 });
 
 btnEl.addEventListener('click', handleSearch);

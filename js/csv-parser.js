@@ -10,7 +10,7 @@ export function parseCSV(text) {
 
   const iPrenom = headers.findIndex(h => h.toLowerCase().includes('pr'));
   const iConfirm = headers.findIndex(h => h.toLowerCase().includes('confirm'));
-  const iTable = headers.findIndex(h => h.toLowerCase().includes('table'));
+  const iTable = headers.findIndex(h => h.toLowerCase() === 'table');
 
   return lines.map(line => {
     const cols = line.split(',');
