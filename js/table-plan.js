@@ -1,7 +1,6 @@
 import { resultsEl } from "./ui.js";
 
 export function renderTables(numTable) {
-    console.log(numTable);
     if (numTable == 0) return;
 
     const tableColumn = document.createElement('div');

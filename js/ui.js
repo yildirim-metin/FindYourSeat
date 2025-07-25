@@ -80,8 +80,6 @@ function showGuestTable(guest) {
   resultsEl.appendChild(div);
 
   div.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  console.log('showGuestTable: ', guest.table);
   renderTables(guest.table);
 }
 
