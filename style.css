@@ -7,14 +7,14 @@
   --space-lg: 2rem;
   --color-bg: #fff;
   --color-fg: #222;
-  --color-accent: #fae1f3; /* rose chic */
+  --color-accent: #fae1f3;
   --color-accent-hover: #fae1f3;
   --color-border: #ddd;
   --color-muted: #bbb;
 }
 
 
-.dancing-script-alicia {
+.dancing-script-title {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -165,7 +165,7 @@ body {
   border-width: 1px;
   text-align: center;
   align-content: center;
-  background-color: antiquewhite;
+  background-color: var(--color-accent);
 }
 
 .container {
