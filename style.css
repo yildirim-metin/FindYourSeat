@@ -145,14 +145,17 @@ body {
 }
 
 .table {
-  margin-right: 5px;
-  margin-bottom: 10px;
-  width: 100px;
-  height: 100px;
+  margin-right: 1vw;
+  margin-bottom: 2vw;
+  width: min(22vw, 100px);
+  height: min(22vw, 100px);
   border-radius: 50%;
   border: 1px solid black;
   text-align: center;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
 .table-here {
@@ -161,7 +164,8 @@ body {
 
 .table-column {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1vw;
 }
 
 .stage-table-row {
@@ -169,17 +173,28 @@ body {
   grid-template-rows: auto auto auto;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 100%;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
 .empty-div {
-  width: 50px;
-  height: 50px;
+  width: min(15vw, 50px);
+  height: min(15vw, 50px);
 }
 
 .stage {
-  width: auto;
-  height: 50px;
-  border: solid;
-  border-color: black;
-  border-width: 1px;
-  align-content: center;
+  width: 50%;
+  height: auto;
+  min-height: 40px;
+  border: 1px solid black;
   text-align: center;
+  padding: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  margin: 0 auto;
 }
