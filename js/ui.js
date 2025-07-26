@@ -1,6 +1,6 @@
 import { normalize, matchesGuest } from "./utils.js";
 import { GUESTS } from "./data-loader.js";
-import { renderTables } from "./table-plan.js";
+import { renderTablePlan } from "./table-plan.js";
 
 // ======== DOM refs ========
 export const inputEl = document.getElementById('search-input');
@@ -80,7 +80,7 @@ function showGuestTable(guest) {
   resultsEl.appendChild(div);
 
   div.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  renderTables(guest.table);
+  renderTablePlan(guest.table);
 }
 
 export function toggleAllList() {
