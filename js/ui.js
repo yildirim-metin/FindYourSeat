@@ -66,18 +66,18 @@ function renderGuestCard(guest, highlight=false) {
 
 function showGuestTable(guest) {
   searchResultsElement.innerHTML = '';
-  const div = document.createElement('div');
-  div.className = 'result-card result-highlight';
+  const resultCard = document.createElement('div');
+  resultCard.className = 'result-card result-highlight';
 
   const h2 = document.createElement('h2');
   h2.textContent = guest.prenom;
 
   const p = document.createElement('p');
-  p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}${guest.place ? `</strong>, place <strong>${guest.place}` : ''}</strong>.`;
+  p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}.`;
 
-  div.appendChild(h2);
-  div.appendChild(p);
-  searchResultsElement.appendChild(div);
+  resultCard.appendChild(h2);
+  resultCard.appendChild(p);
+  searchResultsElement.appendChild(resultCard);
 
   renderTablePlan(guest.table);
 }
