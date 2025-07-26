@@ -3,14 +3,14 @@ import { GUESTS } from "./data-loader.js";
 import { renderTablePlan } from "./table-plan.js";
 
 // ======== DOM refs ========
-export const inputEl = document.getElementById('search-input');
-export const btnEl = document.getElementById('search-btn');
-export const resultsEl = document.getElementById('results');
+export const searchInputElement = document.getElementById('search-input');
+export const searchButtonElement = document.getElementById('search-btn');
+export const searchResultsElement = document.getElementById('results');
 export const showAllBtn = document.getElementById('show-all-btn');
 export const allListWrapper = document.getElementById('all-list-wrapper');
 
 export function handleSearch() {
-  const q = inputEl.value;
+  const q = searchInputElement.value;
   const qNorm = normalize(q);
   if (!qNorm) {
     showMessage("Tapez votre nom dans la barre ci-dessus.");
@@ -21,15 +21,15 @@ export function handleSearch() {
 }
 
 export function showMessage(msg) {
-  resultsEl.innerHTML = '';
+  searchResultsElement.innerHTML = '';
   const div = document.createElement('div');
   div.className = 'message';
   div.textContent = msg;
-  resultsEl.appendChild(div);
+  searchResultsElement.appendChild(div);
 }
 
 function renderMatches(matches, rawQuery) {
-  resultsEl.innerHTML = '';
+  searchResultsElement.innerHTML = '';
   if (!matches.length) {
     showMessage(`Aucun invité trouvé pour "${rawQuery}". Vérifiez l'orthographe.`);
     return;
@@ -42,7 +42,7 @@ function renderMatches(matches, rawQuery) {
   const p = document.createElement('p');
   p.className = 'message';
   p.textContent = `${matches.length} résultats. Cliquez sur votre nom :`;
-  resultsEl.appendChild(p);
+  searchResultsElement.appendChild(p);
   matches.forEach(m => renderGuestCard(m, false));
 }
 
@@ -61,11 +61,11 @@ function renderGuestCard(guest, highlight=false) {
 
   div.appendChild(h2);
   div.appendChild(p);
-  resultsEl.appendChild(div);
+  searchResultsElement.appendChild(div);
 }
 
 function showGuestTable(guest) {
-  resultsEl.innerHTML = '';
+  searchResultsElement.innerHTML = '';
   const div = document.createElement('div');
   div.className = 'result-card result-highlight';
 
@@ -77,7 +77,7 @@ function showGuestTable(guest) {
 
   div.appendChild(h2);
   div.appendChild(p);
-  resultsEl.appendChild(div);
+  searchResultsElement.appendChild(div);
 
   renderTablePlan(guest.table);
 }

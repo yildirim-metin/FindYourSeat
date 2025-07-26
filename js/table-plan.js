@@ -1,4 +1,4 @@
-import { resultsEl } from "./ui.js";
+import { searchResultsElement } from "./ui.js";
 
 export function renderTablePlan(numTable) {
     const row = document.createElement('div');
@@ -8,7 +8,7 @@ export function renderTablePlan(numTable) {
     row.appendChild(renderEmptySpace());
     row.appendChild(renderTables(numTable));
 
-    resultsEl.appendChild(row);
+    searchResultsElement.appendChild(row);
 
     scrollToTable(numTable);
 }
