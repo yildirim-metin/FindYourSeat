@@ -147,8 +147,8 @@ body {
 .table {
   margin-right: 1vw;
   margin-bottom: 2vw;
-  width: min(22vw, 100px);
-  height: min(22vw, 100px);
+  width: min(15vw, 100px);
+  height: min(15vw, 100px);
   border-radius: 50%;
   border: 1px solid black;
   text-align: center;
