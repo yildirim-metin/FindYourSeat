@@ -173,16 +173,6 @@ body {
   grid-template-rows: auto auto auto;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  max-width: 100%;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
 .empty-div {
   width: min(15vw, 50px);
   height: min(15vw, 50px);
