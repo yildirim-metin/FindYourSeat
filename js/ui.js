@@ -79,7 +79,6 @@ function showGuestTable(guest) {
   div.appendChild(p);
   resultsEl.appendChild(div);
 
-  div.scrollIntoView({ behavior: 'smooth', block: 'center' });
   renderTablePlan(guest.table);
 }
 

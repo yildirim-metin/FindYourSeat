@@ -7,8 +7,10 @@ export function renderTablePlan(numTable) {
     row.appendChild(renderStage());
     row.appendChild(renderEmptySpace());
     row.appendChild(renderTables(numTable));
-    
+
     resultsEl.appendChild(row);
+
+    scrollToTable(numTable);
 }
 
 function renderTables(numTable) {
@@ -44,6 +46,7 @@ function renderTableAtPosition(pos, numTable) {
     const table = document.createElement('div');
     table.className = pos == numTable ? 'table table-here' : 'table';
     table.textContent = pos == numTable ? 'Tu es ici !' : pos;
+    table.id = "table-", pos;
     return table;
 }
 
@@ -51,4 +54,9 @@ function renderEmptySpace() {
     const emptyDiv = document.createElement('div');
     emptyDiv.className = 'empty-div';
     return emptyDiv;
+}
+
+function scrollToTable(numTable) {
+    const tableToFocus = document.getElementById("table-", numTable)
+    tableToFocus.scrollIntoView({ behavior: 'smooth', block: 'start'});
 }
