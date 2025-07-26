@@ -1,4 +1,4 @@
-import {inputEl, btnEl, handleSearch, toggleAllList, showAllBtn} from './ui.js';
+import {searchInputElement, searchButtonElement, handleSearch, toggleAllList, showAllBtn} from './ui.js';
 import { loadGuests } from "./data-loader.js";
 import { renderTablePlan } from './table-plan.js';
 
@@ -17,8 +17,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   renderTablePlan();
 });
 
-btnEl.addEventListener('click', handleSearch);
-inputEl.addEventListener('keydown', e => {
+searchButtonElement.addEventListener('click', handleSearch);
+searchInputElement.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     handleSearch();
   }
