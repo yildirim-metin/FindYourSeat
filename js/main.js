@@ -6,7 +6,7 @@ function autoSearchFromURL() {
   const params = new URLSearchParams(window.location.search);
   const q = params.get('q');
   if (q) {
-    inputEl.value = q;
+    searchInputElement.value = q;
     handleSearch();
   }
 }
