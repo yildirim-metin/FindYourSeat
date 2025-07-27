@@ -12,7 +12,7 @@ export async function loadGuests() {
 
     GUESTS = parseCSV(text)
       .filter(g => g.confirme)
-      .map(g => ({ prenom: g.prenom, table: g.table || '?' }));
+      .map(g => ({ prenom: g.prenom, nom: g.nom, table: g.table || '?' }));
 
     DATA_LOADED = true;
   } catch (err) {

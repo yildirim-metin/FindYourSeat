@@ -1,104 +1,107 @@
-﻿PRÉNOM,NOM,E-MAIL,TÉLÉPHONE,TÉLÉPHONE PORTABLE,GROUPE,INVITÉ,CONFIRMÉ,MENU,ADRESSE,CODE POSTAL,VILLE,DÉPARTEMENT,TABLE,SEXE
-Angela,4,,,,,,CONFIRMÉ,,,,,,1,
-Dina,4,,,,,,CONFIRMÉ,,,,,,?,
-Luigi,2,,,,,,EN ATTENTE,,,,,,,
-Patrice,1,,,,,,CONFIRMÉ,,,,,,,
-Jérome,3,,,,,,CONFIRMÉ,,,,,,4,
-Andrée,2,,,,,,CONFIRMÉ,,,,,,4,
-Francine,2,,,,,,ANNULÉ,,,,,,,
-Olivier,4,,,,,,ANNULÉ,,,,,,,
-Sophie,4,,,,,,CONFIRMÉ,,,,,,5,
-Jacqueline,2,,,,,,ANNULÉ,,,,,,,
-Sabine,2,,,,,,CONFIRMÉ,,,,,,4,
-Valérie,3,,,,,,ANNULÉ,,,,,,,
-Yvette,2,,,,,,ANNULÉ,,,,,,,
-Pina,3,,,,,,CONFIRMÉ,,,,,,?,
-Vitto,2,,,,,,EN ATTENTE,,,,,,,
-Giuseppe,2,,,,,,EN ATTENTE,,,,,,,
-Carmela,1,,,,,,EN ATTENTE,,,,,,,
-Marie. M,1,,,,,,ANNULÉ,,,,,,,
-Marie B.,1,,,,,,CONFIRMÉ,,,,,,22,
-Valia,1,,,,,,CONFIRMÉ,,,,,,22,
-Katy,1,,,,,,CONFIRMÉ,,,,,,22,
-Laura,1,,,,,,CONFIRMÉ,,,,,,22,
-Manon,1,,,,,,CONFIRMÉ,,,,,,22,
-Mallo,1,,,,,,CONFIRMÉ,,,,,,22,
-Débo DANSE,1,,,,,,CONFIRMÉ,,,,,,22,
-Lucie,1,,,,,,CONFIRMÉ,,,,,,22,
-Daniel,1,,,,,,CONFIRMÉ,,,,,, 15,
-Matthias,1,,,,,,CONFIRMÉ,,,,,, 15,
-Kylian,1,,,,,,CONFIRMÉ,,,,,, 15,
-Ryan,1,,,,,,CONFIRMÉ,,,,,, 15,
-Eve,1,,,,,,CONFIRMÉ,,,,,, 15,
-Anthony et ses parents,3,,,,,,EN ATTENTE,,,,,,,
-Carmelo,2,,,,,,EN ATTENTE,,,,,,,
-Daniela,4,,,,,,EN ATTENTE,,,,,,,
-Fabrice,4,,,,,,EN ATTENTE,,,,,,,
-Jeff,2,,,,,,CONFIRMÉ,,,,,,6,
-Débo,3,,,,,,CONFIRMÉ,,,,,,9,
-Manu,1,,,,,,EN ATTENTE,,,,,,9,
-Yvan,1,,,,,,EN ATTENTE,,,,,,9,
-Eli ,2,,,,,,CONFIRMÉ,,,,,,Complet NDRL,
-Saartje,4,,,,,,CONFIRMÉ,,,,,,Complet NDRL,
-Tom,1,,,,,,CONFIRMÉ,,,,,,Complet NDRL,
-Hugo,1,,,,,,CONFIRMÉ,,,,,,9,
-Luca,2,,,,,,CONFIRMÉ,,,,,,9,
-Rosario,2,,,,,,CONFIRMÉ,,,,,,5 places,
-Mariella,3,,,,,,CONFIRMÉ,,,,,,?,
-Marraine ,2 -C,,,,,,ANNULÉ,,,,,,,
-Parrain,4 -C,,,,,,EN ATTENTE,,,,,,,
-Mégane,2 -C,,,,,,EN ATTENTE,,,,,,,
-Nono,1,,,,,,CONFIRMÉ,,,,,,5 places,
-Papi,2,,,,,,CONFIRMÉ,,,,,,Complet NDRL,
-Parents,3 -C,,,,,,CONFIRMÉ,,,,,,Parents,
-Rocco (Italie),4,,,,,,EN ATTENTE,,,,,,,
-Patrizia,4,,,,,,EN ATTENTE,,,,,,,
-Joel,2 -C,,,,,,CONFIRMÉ,,,,,,Lenoir & Colin Complet,
-Gina,2,,,,,,EN ATTENTE,,,,,,,
-Grands parents Metin,2,,,,,,CONFIRMÉ,,,,,,3 places,
-Ayhan Y,1,,,,,,CONFIRMÉ,,,,,,3 places,
-Adem,4,,,,,,CONFIRMÉ,,,,,,3 places,
-Aynur,4 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Suna,2 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Anne Baba,4 -C,,,,,,CONFIRMÉ,,,,,,Parents,
-Omer,5 -C,,,,,,CONFIRMÉ,,,,,,24,
-Ramazan C.,3 -C,,,,,,CONFIRMÉ,,,,,,8,
-Birol,5 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Erol,2 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Alper,2 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Ramazan K,3 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Ludovick,4,,,,,,CONFIRMÉ,,,,,,24,
-Copines Anne,4,,,,,,CONFIRMÉ,,,,,,6 places,
-Amis Baba,4,,,,,,EN ATTENTE,,,,,,Complet,
-Yasemin,2,,,,,,CONFIRMÉ,,,,,,8,
-Esra,2,,,,,,CONFIRMÉ,,,,,,8,
-Ilhan,4,,,,,,CONFIRMÉ,,,,,,19,
-Zéliha,2,,,,,,CONFIRMÉ,,,,,,19,
-Seviye,2,,,,,,ANNULÉ,,,,,,,
-Umit,4,,,,,,CONFIRMÉ,,,,,,19,
-Ugur,3,,,,,,CONFIRMÉ,,,,,,Complet,
-Zeynep,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Yusuf,3,,,,,,CONFIRMÉ,,,,,,Complet,
-Sener,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Ayse,5,,,,,,CONFIRMÉ,,,,,,Complet,
-Bilal,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Funda,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Ayhan C.,5,,,,,,CONFIRMÉ,,,,,,Complet,
-Sibel,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Yasin,2,,,,,,CONFIRMÉ,,,,,,Complet,
-Menekse,2,,,,,,CONFIRMÉ,,,,,,Complet,
-Axel,2,,,,,,ANNULÉ,,,,,,,
-Salih,2,,,,,,ANNULÉ,,,,,,,
-Durdane,2,,,,,,EN ATTENTE,,,,,,Complet,
-Bican,3,,,,,,ANNULÉ,,,,,,,
-Hatice K.,4 + 1 bebe,,,,,,CONFIRMÉ,,,,,,25,
-Fadime K,4,,,,,,CONFIRMÉ,,,,,,25,
-Nazli (Ahmet),4,,,,,,CONFIRMÉ,,,,,,Complet,
-Cihat,4,,,,,,CONFIRMÉ,,,,,,Complet,
-Ergun,3 -C,,,,,,CONFIRMÉ,,,,,,Complet,
-Neset,1,,,,,,CONFIRMÉ,,,,,,Complet,
-Osman C.,5,,,,,,CONFIRMÉ,,,,,,Complet,
-Eren,1,,,,,,CONFIRMÉ,Adultes,,,,,Complet,
-Nouwah,1,,,,,,CONFIRMÉ,Adultes,,,,,9,
-Isik,4 -C,,,,,,CONFIRMÉ,Adultes,,,,,Complet,
-Vincent,4,,,,,,CONFIRMÉ,Adultes,,,,,5,
+﻿PRÉNOM;NOM;E-MAIL;TÉLÉPHONE;TÉLÉPHONE PORTABLE;GROUPE;INVITÉ;CONFIRMÉ;MENU;ADRESSE;CODE POSTAL;VILLE;DÉPARTEMENT;TABLE;SEXE
+Angela;4;;;;;;CONFIRMÉ;;;;;;12;
+Dina;4;;;;;;CONFIRMÉ;;;;;;12;
+??;Luigi;;;;;;CONFIRMÉ;;;2;;;12;
+Patrice;;;;;;;CONFIRMÉ;;;1;;;8;
+Adrianne;Jérome;;;;;;CONFIRMÉ;;;3;;;11;
+Andrée;Marc;;;;;;CONFIRMÉ;;;2;;;11;
+Francine;2;;;;;;ANNULÉ;;;;;;;
+Olivier;4;;;;;;ANNULÉ;;;;;;;
+Sophie;??;;;;;;CONFIRMÉ;;;2;;;10;
+Jacqueline;2;;;;;;ANNULÉ;;;;;;;
+Sabine;Emilie;;;;;;CONFIRMÉ;;;2;;;11;
+Valérie;3;;;;;;ANNULÉ;;;;;;;
+Yvette;2;;;;;;ANNULÉ;;;;;;;
+Pina;??;;;;;;CONFIRMÉ;;;3;;;8;
+??;Vitto;;;;;;CONFIRMÉ;;;2;;;4;
+Giuseppe;2;;;;;;EN ATTENTE;;;;;;;
+Carmela;1;;;;;;ANNULÉ;;;;;;;
+Marie. M;1;;;;;;ANNULÉ;;;;;;;
+Marie B.;;;;;;;CONFIRMÉ;;;1;;;23;
+Valia;;;;;;;CONFIRMÉ;;;1;;;23;
+Katy;;;;;;;CONFIRMÉ;;;1;;;23;
+Laura;;;;;;;CONFIRMÉ;;;1;;;23;
+Manon;;;;;;;CONFIRMÉ;;;1;;;23;
+Mallo;;;;;;;CONFIRMÉ;;;1;;;23;
+Déborah D.;;;;;;;CONFIRMÉ;;;1;;;23;
+Lucie;;;;;;;CONFIRMÉ;;;1;;;23;
+Daniel;;;;;;;CONFIRMÉ;;;1;;;25;
+Matthias;;;;;;;CONFIRMÉ;;;1;;;25;
+Kylian;;;;;;;CONFIRMÉ;;;1;;;25;
+Eve;Ryan;;;;;;CONFIRMÉ;;;2;;;25;
+Anthony;ses parents;;;;;;CONFIRMÉ;;;3;;;4;
+Carmelo;2;;;;;;EN ATTENTE;;;;;;;
+Daniela;4;;;;;;EN ATTENTE;;;;;;;
+Fabrice;4;;;;;;EN ATTENTE;;;;;;;
+Yasmine;Jeff;;;;;;CONFIRMÉ;;;2;;;4;
+Déborah;Cyril;;;;;;CONFIRMÉ;;;3;;;10;
+Manu;1;;;;;;ANNULÉ;;;;;;;
+Yvan;;;;;;;CONFIRMÉ;;;1;;;10;
+Evelyn;Eli;;;;;;CONFIRMÉ;;;2;;;7;
+Saartje;Geert;;;;;;CONFIRMÉ;;;4;;;7;
+Tom;;;;;;;CONFIRMÉ;;;1;;;7;
+Hugo;;;;;;;CONFIRMÉ;;;1;;;10;
+Lara;Luca;;;;;;CONFIRMÉ;;;2;;;10;
+Marie;Rosario;;;;;;CONFIRMÉ;;;2;;;4;
+Mariella;??;;;;;;CONFIRMÉ;;;3;;;8;
+Marraine ;2 -C;;;;;;ANNULÉ;;;;;;;
+Florianne;Rocco;;;;;;EN ATTENTE;;;4;;;21;
+Mégane;;;;;;;EN ATTENTE;;;2;;;21;
+Nono;;;;;;;CONFIRMÉ;;;1;;;4;
+Sylvie;Edwig;;;;;;CONFIRMÉ;;;2;;;7;
+Francesca;Christophe;;;;;;CONFIRMÉ;;;3;;;3;
+Italie;Rocco;;;;;;EN ATTENTE;;;4;;;8;
+Patrizia;4;;;;;;EN ATTENTE;;;;;;;
+Maria;Joel;;;;;;CONFIRMÉ;;;2;;;11;
+Gina;2;;;;;;EN ATTENTE;;;;;;;
+Turkan;Hakki;;;;;;CONFIRMÉ;;;2;;;6;
+Ayhan ;;;;;;;CONFIRMÉ;;;1;;;5;
+Catherine;Adem;;;;;;CONFIRMÉ;;;4;;;5;
+Aynur;Ilker;;;;;;CONFIRMÉ;;;5;;;2;
+Suna;Senol;;;;;;CONFIRMÉ;;;2;;;2;
+Nurten;Nefaretin;;;;;;CONFIRMÉ;;;4;;;3;
+Cindy;Ömer;;;;;;CONFIRMÉ;;;5;;;5;
+Zuleyha;Ramazan;;;;;;CONFIRMÉ;;;3;;;9;
+Elif;Birol;;;;;;CONFIRMÉ;;;6;;;1;
+Süreyya;Erol;;;;;;CONFIRMÉ;;;2;;;15;
+Martine;Alper;;;;;;CONFIRMÉ;;;2;;;15;
+Songül;Ramazan;;;;;;CONFIRMÉ;;;3;;;19;
+Stefania;Ludovick;;;;;;CONFIRMÉ;;;4;;;6;
+Amis Baba;4;;;;;;EN ATTENTE;;;;;;24;
+Yasemin;Onur;;;;;;CONFIRMÉ;;;4;;;9;
+Esra;Dogan;;;;;;CONFIRMÉ;;;2;;;9;
+Berrin;Ilhan;;;;;;CONFIRMÉ;;;4;;;13;
+Zéliha;Mete;;;;;;CONFIRMÉ;;;2;;;13;
+Seviye;;;;;;;ANNULÉ;;;2;;;;
+Yasemin;Umit;;;;;;CONFIRMÉ;;;4;;;14;
+Jessica;Ugur;;;;;;CONFIRMÉ;;;3;;;14;
+Zeynep;François;;;;;;CONFIRMÉ;;;4;;;14;
+Elif;Yusuf;;;;;;CONFIRMÉ;;;3;;;6;
+Seycan;Sener;;;;;;CONFIRMÉ;;;4;;;22;
+Ayse;Senol;;;;;;CONFIRMÉ;;;5;;;22;
+Elif;Bilal;;;;;;CONFIRMÉ;;;4;;;20;
+Funda;Mustafa;;;;;;CONFIRMÉ;;;4;;;15;
+Nalan;Ayhan;;;;;;CONFIRMÉ;;;5;;;17;
+Sibel;Murat;;;;;;CONFIRMÉ;;;4;;;18;
+Sarah;Yasin;;;;;;CONFIRMÉ;;;2;;;18;
+Menekse ;Eda;;;;;;CONFIRMÉ;;;2;;;16;
+Axel;2;;;;;;ANNULÉ;;;;;;;
+Salih;;;;;;;ANNULÉ;;;2;;;;
+Durdane;2;;;;;;EN ATTENTE;;;;;;15;
+Bican;3;;;;;;ANNULÉ;;;;;;;
+Hatice;Orhan;;;;;;CONFIRMÉ;;;5;;;20;
+Fadime;Mehmet;;;;;;CONFIRMÉ;;;4;;;16;
+Nazli;Ahmet;;;;;;CONFIRMÉ;;;4;;;13;
+Fadime;Cihat;;;;;;CONFIRMÉ;;;4;;;16;
+??;Ergun;;;;;;CONFIRMÉ;;;3;;;19;
+Neset;;;;;;;CONFIRMÉ;;;1;;;24;
+Pamela;Osman;;;;;;CONFIRMÉ;;;5;;;17;
+Noah;;;;;;;CONFIRMÉ;Adultes;;1;;;10;
+Isik;Mesut;;;;;;CONFIRMÉ;Adultes;;4;;;24;
+??;Vincent;;;;;;CONFIRMÉ;Adultes;;4;;;25;
+Hassan;;;;;;;EN ATTENTE;Adultes;;1;;;19;
+Fatma;Seyda;;;;;;EN ATTENTE;Adultes;;2;;;2;
+Lydia;;;;;;;EN ATTENTE;Adultes;;1;;;1;
+Audrey;;;;;;;CONFIRMÉ;Adultes;;;;;1;
+Nimet;;;;;;;CONFIRMÉ;Adultes;;1;;;1;
+Iknur;;;;;;;EN ATTENTE;Adultes;;1;;;1;

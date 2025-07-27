@@ -5,18 +5,20 @@ export function parseCSV(text) {
     return [];
   }
 
-  const headers = lines.shift().split(',').map(h => h.trim());
+  const headers = lines.shift().split(';').map(h => h.trim());
 
-  const iPrenom = headers.findIndex(h => h.toLowerCase().includes('pr'));
-  const iConfirm = headers.findIndex(h => h.toLowerCase().includes('confirm'));
+  const iSurname = headers.findIndex(h => h.toLowerCase() === 'prénom');
+  const iName = headers.findIndex(h => h.toLowerCase() === 'nom');
+  const iConfirm = headers.findIndex(h => h.toLowerCase() === 'confirmé');
   const iTable = headers.findIndex(h => h.toLowerCase() === 'table');
 
   return lines.map(line => {
-    const cols = line.split(',');
+    const cols = line.split(';');
     const confirmeRaw = (cols[iConfirm] || '').trim().toLowerCase();
     return {
-      prenom:  (cols[iPrenom] || '').trim(),
-      confirme: confirmeRaw === 'confirmé',
+      prenom:  (cols[iSurname] || '').trim(),
+      nom: (cols[iName] || '').trim(),
+      confirme: confirmeRaw === 'confirmé' || confirmeRaw === 'en attente',
       table:   (cols[iTable] || '').trim(),
     };
   });

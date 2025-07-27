@@ -55,9 +55,9 @@ function renderGuestCard(guest, highlight=false) {
   div.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') showGuestTable(guest); });
 
   const h2 = document.createElement('h2');
-  h2.textContent = guest.prenom || '(Invité)';
+  h2.textContent = `${guest.prenom ?? (Invité)} ${guest.nom ? `et ${guest.nom}`  : ''}`;
   const p = document.createElement('p');
-  p.textContent = `Table ${guest.table ?? '?'}${guest.place ? ` • Place ${guest.place}` : ''}`;
+  p.textContent = `Table ${guest.table ?? '?'}`;
 
   div.appendChild(h2);
   div.appendChild(p);
@@ -103,7 +103,12 @@ function renderAllList() {
   tbl.className = 'all-list-table';
 
   const thead = document.createElement('thead');
-  thead.innerHTML = '<tr><th>Prénom</th><th>Table</th><th>Place</th></tr>';
+  thead.innerHTML = `
+    <tr>
+      <th>Prénom (femme)</th>
+      <th>Nom (homme)</th>
+      <th>Table</th>
+    </tr>`;
   tbl.appendChild(thead);
 
   const tbody = document.createElement('tbody');
@@ -114,7 +119,10 @@ function renderAllList() {
   });
   sorted.forEach(g => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${g.prenom ?? ''}</td><td>${g.table ?? ''}</td><td>${g.place ?? ''}</td>`;
+    tr.innerHTML = `
+      <td>${g.prenom ?? ''}</td>
+      <td>${g.nom ?? ''}</td>
+      <td>${g.table ?? ''}</td>`;
     tbody.appendChild(tr);
   });
   tbl.appendChild(tbody);
