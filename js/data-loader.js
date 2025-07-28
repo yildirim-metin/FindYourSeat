@@ -2,7 +2,6 @@ import { parseCSV } from "./csv-parser.js";
 import { showMessage } from "./ui.js";
 
 export let GUESTS = [];
-export let DATA_LOADED = false;
 
 export async function loadGuests() {
   try {
@@ -11,8 +10,6 @@ export async function loadGuests() {
     const text = await res.text();
 
     GUESTS = parseCSV(text).filter(g => g.hasConfirmed);
-
-    DATA_LOADED = true;
   } catch (err) {
     console.error('Erreur chargement guests.csv', err);
     showMessage("Impossible de charger la liste des invités.");
