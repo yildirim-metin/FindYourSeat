@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,28 +11,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <main class="app-root">
-    <header class="app-header">
-      <h1 id="app-title-first" class="dancing-script-title">Bienvenue à notre Mariage</h1>
-      <h1 id="app-title-second" class="dancing-script-title">Alicia 💍 Metin</h1>
-      <p class="app-subtitle">Tapez votre nom pour trouver votre table.</p>
-    </header>
+    <div class="global-padding">
+      <header class="app-header">
+        <h1 id="app-title-first" class="dancing-script-title">Bienvenue à notre Mariage</h1>
+        <h1 id="app-title-second" class="dancing-script-title">Alicia 💍 Metin</h1>
+        <p class="app-subtitle">Tapez votre nom pour trouver votre table.</p>
+      </header>
 
-    <section class="search-section" aria-labelledby="search-label">
-      <label id="search-label" class="sr-only" for="search-input">Rechercher votre nom</label>
-      <input
-        id="search-input"
-        class="search-input"
-        type="text"
-        placeholder="Votre nom..."
-        autocomplete="off"
-        inputmode="text"
-      />
-      <button id="search-btn" class="btn-primary" type="button">Chercher</button>
-    </section>
+      <section class="search-section" aria-labelledby="search-label">
+        <label id="search-label" class="sr-only" for="search-input">Rechercher votre nom</label>
+        <input id="search-input" class="search-input" type="text" placeholder="Votre nom..." autocomplete="off"
+          inputmode="text" />
+        <button id="search-btn" class="btn-primary" type="button">Chercher</button>
+      </section>
 
-    <section id="results" class="results" aria-live="polite"></section>
+      <section id="results" class="results" aria-live="polite"></section>
+    </div>
 
     <footer class="app-footer">
       <button id="show-all-btn" class="btn-link" type="button">Voir la liste complète (organisateurs)</button>

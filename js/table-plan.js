@@ -1,6 +1,8 @@
 import { searchResultsElement } from "./ui.js";
 
 export function renderTablePlan(numTable) {
+    searchResultsElement.appendChild(renderTitle());
+
     const row = document.createElement('div');
     row.className = 'stage-table-row';
 
@@ -11,6 +13,14 @@ export function renderTablePlan(numTable) {
     searchResultsElement.appendChild(row);
 
     scrollToTable(numTable);
+}
+
+function renderTitle() {
+    const title = document.createElement('h2');
+    title.textContent = 'Plan de table';
+    title.className = 'dancing-script-title';
+    title.id = 'table-plan-title';
+    return title;
 }
 
 function renderTables(numTable) {
