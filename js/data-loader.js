@@ -10,9 +10,7 @@ export async function loadGuests() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
 
-    GUESTS = parseCSV(text)
-      .filter(g => g.hasConfirmed)
-      .map(g => ({ surname: g.surname, name: g.name, table: g.table || '?' }));
+    GUESTS = parseCSV(text).filter(g => g.hasConfirmed);
 
     DATA_LOADED = true;
   } catch (err) {

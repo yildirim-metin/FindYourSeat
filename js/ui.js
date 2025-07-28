@@ -55,7 +55,7 @@ function renderGuestCard(guest, highlight=false) {
   div.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') showGuestTable(guest); });
 
   const h2 = document.createElement('h2');
-  h2.textContent = `${guest.surname ?? (Invité)} ${guest.name ? `et ${guest.name}`  : ''}`;
+  h2.textContent = guest.fullName();
   const p = document.createElement('p');
   p.textContent = `Table ${guest.table ?? '?'}`;
 
@@ -70,7 +70,7 @@ function showGuestTable(guest) {
   resultCard.className = 'result-card result-highlight';
 
   const h2 = document.createElement('h2');
-  h2.textContent = `${guest.surname ?? (Invité)} ${guest.name ? `et ${guest.name}`  : ''}`;
+  h2.textContent = guest.fullName();
 
   const p = document.createElement('p');
   p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}.`;

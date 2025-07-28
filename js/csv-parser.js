@@ -1,3 +1,5 @@
+import { Guest } from "./models/guest.js";
+
 export function parseCSV(text) {
   text = text.replace(/^\uFEFF/, ''); // enlève BOM
   const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
@@ -14,12 +16,11 @@ export function parseCSV(text) {
 
   return lines.map(line => {
     const cols = line.split(';');
-    const confirmeRaw = (cols[iConfirm] || '').trim().toLowerCase();
-    return {
-      surname:  (cols[iSurname] || '').trim(),
-      name: (cols[iName] || '').trim(),
-      hasConfirmed: confirmeRaw === 'confirmé' || confirmeRaw === 'en attente',
-      table: (cols[iTable] || '').trim(),
-    };
+    const hasConfirmedRaw = (cols[iConfirm] || '').trim().toLowerCase();
+    return new Guest(
+      (cols[iSurname] || '').trim(),
+      (cols[iName] || '').trim(),
+      hasConfirmedRaw === 'confirmé' || hasConfirmedRaw === 'en attente',
+      (cols[iTable] || '').trim());
   });
 }
