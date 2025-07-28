@@ -55,7 +55,7 @@ function renderGuestCard(guest, highlight=false) {
   div.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') showGuestTable(guest); });
 
   const h2 = document.createElement('h2');
-  h2.textContent = `${guest.prenom ?? (Invité)} ${guest.nom ? `et ${guest.nom}`  : ''}`;
+  h2.textContent = `${guest.surname ?? (Invité)} ${guest.name ? `et ${guest.name}`  : ''}`;
   const p = document.createElement('p');
   p.textContent = `Table ${guest.table ?? '?'}`;
 
@@ -70,7 +70,7 @@ function showGuestTable(guest) {
   resultCard.className = 'result-card result-highlight';
 
   const h2 = document.createElement('h2');
-  h2.textContent = guest.prenom;
+  h2.textContent = `${guest.surname ?? (Invité)} ${guest.name ? `et ${guest.name}`  : ''}`;
 
   const p = document.createElement('p');
   p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}.`;
@@ -113,15 +113,15 @@ function renderAllList() {
 
   const tbody = document.createElement('tbody');
   const sorted = [...GUESTS].sort((a,b) => {
-    const ap = normalize(a.prenom), bp = normalize(b.prenom);
+    const ap = normalize(a.surname), bp = normalize(b.surname);
     if (ap < bp) return -1; if (ap > bp) return 1;
     return 0;
   });
   sorted.forEach(g => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${g.prenom ?? ''}</td>
-      <td>${g.nom ?? ''}</td>
+      <td>${g.surname ?? ''}</td>
+      <td>${g.name ?? ''}</td>
       <td>${g.table ?? ''}</td>`;
     tbody.appendChild(tr);
   });

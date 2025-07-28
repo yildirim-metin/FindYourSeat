@@ -11,8 +11,8 @@ export async function loadGuests() {
     const text = await res.text();
 
     GUESTS = parseCSV(text)
-      .filter(g => g.confirme)
-      .map(g => ({ prenom: g.prenom, nom: g.nom, table: g.table || '?' }));
+      .filter(g => g.hasConfirmed)
+      .map(g => ({ surname: g.surname, name: g.name, table: g.table || '?' }));
 
     DATA_LOADED = true;
   } catch (err) {

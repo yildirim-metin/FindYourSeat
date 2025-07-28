@@ -7,7 +7,7 @@ export function normalize(str) {
 }
 
 export function matchesGuest(guest, queryNorm) {
-  const surname = normalize(guest.prenom);
-  const name = normalize(guest.nom);
+  const surname = normalize(guest.surname);
+  const name = normalize(guest.name);
   return surname.includes(queryNorm) || name.includes(queryNorm);
 }

@@ -16,10 +16,10 @@ export function parseCSV(text) {
     const cols = line.split(';');
     const confirmeRaw = (cols[iConfirm] || '').trim().toLowerCase();
     return {
-      prenom:  (cols[iSurname] || '').trim(),
-      nom: (cols[iName] || '').trim(),
-      confirme: confirmeRaw === 'confirmé' || confirmeRaw === 'en attente',
-      table:   (cols[iTable] || '').trim(),
+      surname:  (cols[iSurname] || '').trim(),
+      name: (cols[iName] || '').trim(),
+      hasConfirmed: confirmeRaw === 'confirmé' || confirmeRaw === 'en attente',
+      table: (cols[iTable] || '').trim(),
     };
   });
 }
