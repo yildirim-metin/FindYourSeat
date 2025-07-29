@@ -24,6 +24,13 @@ function renderTitle() {
 }
 
 function renderTables(numTable) {
+    // il faudrait avoir un fichier json
+    // qui définit la position des tables
+    // ex:
+    // table 1 est à la position 1
+    // table 25 est à la position 28
+    // Ce qui permettrait du coup de gérer les cas
+    // particulier plus aisément
     if (numTable == 0) return;
 
     const tableColumn = document.createElement('div');
