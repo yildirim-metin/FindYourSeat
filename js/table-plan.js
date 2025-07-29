@@ -12,7 +12,7 @@ export function renderTablePlan(numTable) {
 
     searchResultsElement.appendChild(row);
 
-    scrollToTable(numTable);
+    if(numTable) scrollToTable(numTable);
 }
 
 function renderTitle() {
