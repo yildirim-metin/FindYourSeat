@@ -210,8 +210,8 @@ body {
 }
 
 .wedding-rings {
-  width: 48px;
-  height: 48px;
+  width: 2rem;
+  height: 2rem;
   position: relative;
-  bottom: -10px;
+  bottom: -0.5rem;
 }
