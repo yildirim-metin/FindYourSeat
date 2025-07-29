@@ -11,6 +11,10 @@
   --color-accent-hover: #f1d59b;
   --color-border: #ddd;
   --color-muted: #bbb;
+
+  --color-table-here: #ffcdb2;
+  --color-outline: #e5989b;
+  --color-foreground: #6d6875;
 }
 
 .dancing-script-title {
@@ -29,6 +33,7 @@ body {
   background: var(--color-bg);
   max-width: 600px;
   margin: 0 auto;
+  color: var(--color-foreground);
 }
 
 .global-padding {
@@ -50,12 +55,12 @@ body {
   font-size: 1.125rem;
   border: 2px solid var(--color-border);
   border-radius: var(--radius);
-  border-color: var(--color-accent);
+  border-color: var(--color-outline);
 }
 .search-input:focus {
   outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent);
+  border-color: var(--color-outline);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-outline) 30%, transparent);
 }
 
 .btn-primary {
@@ -63,12 +68,14 @@ body {
   font-size: 1rem;
   border: none;
   border-radius: var(--radius);
-  background: var(--color-accent);
-  color: #5c5b5b;
+  background: var(--color-outline);
+  color: var(--color-foreground);
   cursor: pointer;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 .btn-primary:hover { background: var(--color-accent-hover); }
+.btn-primary:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-outline) 30%, transparent);
+}
 
 .btn-link {
   background: none;
@@ -88,11 +95,10 @@ body {
 .result-card {
   padding: var(--space-md);
   margin-bottom: var(--space-sm);
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-outline);
   border-radius: var(--radius);
   background: #fafafa;
   cursor: pointer;
-  border-color: var(--color-accent);
 }
 .result-card h2 {
   margin: 0 0 var(--space-xs);
@@ -101,10 +107,10 @@ body {
 .result-card p { margin: 0; }
 
 .result-highlight {
-  border-color: var(--color-accent);
-  border-width: 5px;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent);
-  background-color: #fff;
+  border-color: var(--color-outline);
+  border-width: 4px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-outline) 30%, transparent);
+  background-color: #fafafa;
 }
 
 .message {
@@ -152,18 +158,20 @@ body {
   width: min(17vw, 100px);
   height: min(17vw, 100px);
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid var(--color-outline);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: clamp(0.8rem, 2vw, 1.2rem);
   font-weight: bold;
-  color: #ffa7b4;
+  /* color: #ffa7b4; */
+  background-color: #fafafa;
 }
 
 .table-here {
-  background-color: var(--color-accent);
+  background-color: var(--color-table-here);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-outline) 30%, transparent);
 }
 
 .table-column {
@@ -186,16 +194,12 @@ body {
   width: 50%;
   height: auto;
   min-height: 40px;
-  border: 1px solid black;
+  border: 1px solid var(--color-outline);
   text-align: center;
   padding: 0.5rem;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   margin: 0 auto;
-}
-
-footer {
-  background-color: #f5d3d8;
-  border-radius: 100px 100px 0 0;
+  background-color: #fafafa;
 }
 
 #table-plan-title {
