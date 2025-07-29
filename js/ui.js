@@ -66,18 +66,18 @@ function renderGuestCard(guest, highlight=false) {
 
 function showGuestTable(guest) {
   searchResultsElement.innerHTML = '';
-  const resultCard = document.createElement('div');
-  resultCard.className = 'result-card result-highlight';
+  
+  const guestCard = document.createElement('div');
+  guestCard.id = 'guest-card';
+  guestCard.className = 'result-card result-highlight';
 
-  const h2 = document.createElement('h2');
-  h2.textContent = guest.fullName();
+  const guestInfo = document.createElement('h2');
+  guestInfo.textContent = guest.fullName();
 
-  const p = document.createElement('p');
-  p.innerHTML = `Tu es à <strong>Table ${guest.table ?? '?'}.`;
-
-  resultCard.appendChild(h2);
-  resultCard.appendChild(p);
-  searchResultsElement.appendChild(resultCard);
+  guestCard.appendChild(guestInfo);
+  
+  searchResultsElement.appendChild(guestCard);
+  renderOtherGuestOfTable(guest);
 
   renderTablePlan(guest.table);
 }
@@ -127,4 +127,26 @@ function renderAllList() {
   });
   tbl.appendChild(tbody);
   allListWrapper.appendChild(tbl);
+}
+
+function renderOtherGuestOfTable(guest) {
+  const otherGuests = GUESTS.filter(g => 
+    g.table === guest.table
+    && g.name != guest.name
+    && g.surname != guest.surname);
+
+  let otherGuestsInfo = `<strong>${otherGuests[0].fullName()}</strong>`;
+  
+  let i = 1;
+  while (i < otherGuests.length) {
+    otherGuestsInfo = `${otherGuestsInfo}, <strong>${otherGuests[i].fullName()}</strong>`;
+    i++;
+  }
+
+  const tableInfo = document.createElement('p');
+  tableInfo.innerHTML = `Tu es à la <strong>Table ${guest.table}</strong>`;
+  tableInfo.innerHTML = `${tableInfo.innerHTML} avec ${otherGuestsInfo}`;
+  
+  const guestCard = document.getElementById('guest-card');
+  guestCard.appendChild(tableInfo);
 }
