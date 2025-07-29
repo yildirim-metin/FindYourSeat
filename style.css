@@ -75,7 +75,7 @@ body {
 .btn-primary:hover {
   background: var(--color-outline);
 }
-.btn-primary:focus {
+.btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-outline) 30%, transparent);
 }
 
@@ -207,4 +207,11 @@ body {
 #table-plan-title {
   font-size: 1.8rem;
   text-align: center;
+}
+
+.wedding-rings {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  bottom: -10px;
 }
