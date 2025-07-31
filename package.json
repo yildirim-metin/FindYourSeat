@@ -19,6 +19,6 @@
   "homepage": "https://github.com/yildirim-metin/FindYourSeat#readme",
   "description": "",
   "devDependencies": {
-    "eslint": "^9.31.0"
+    "eslint": "^9.32.0"
   }
 }
