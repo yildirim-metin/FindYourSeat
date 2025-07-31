@@ -1,6 +1,7 @@
-import {searchInputElement, searchButtonElement, handleSearch, toggleAllList, showAllBtn} from './ui.js';
+import { searchInputElement, searchButtonElement, handleSearch, toggleAllList, showAllBtn } from './ui.js';
 import { loadGuests } from "./data-loader.js";
 import { renderTablePlan } from './table-plan.js';
+import { langManager } from "../i18n/language-manager.js";
 
 function autoSearchFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -12,6 +13,8 @@ function autoSearchFromURL() {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
+  langManager.updateContent();
+  addOnClickEventForSettingLanguages();
   await loadGuests();
   autoSearchFromURL();
   renderTablePlan();
@@ -24,3 +27,12 @@ searchInputElement.addEventListener('keydown', e => {
   }
 });
 showAllBtn.addEventListener('click', toggleAllList);
+
+function addOnClickEventForSettingLanguages() {
+  document.querySelectorAll('.language-switcher button').forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.lang;
+      langManager.setLanguage(lang);
+    });
+  });
+}

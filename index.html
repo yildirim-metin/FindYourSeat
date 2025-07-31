@@ -14,15 +14,29 @@
 
 <body>
   <main class="app-root">
+    <div class="language-switcher">
+      <button data-lang="fr">Français</button>
+      <button data-lang="tr">Türkçe</button>
+      <button data-lang="it">Italiano</button>
+      <button data-lang="nl">Nederlands</button>
+    </div>
+
+    <h1 data-i18n="welcome"></h1>
+    <nav>
+      <a href="#" data-i18n="home"></a>
+      <a href="#" data-i18n="about"></a>
+      <a href="#" data-i18n="contact"></a>
+    </nav>
+
     <div class="global-padding">
       <header class="app-header">
         <h1 id="app-title-first" class="dancing-script-title">Bienvenue à notre Mariage</h1>
         <h1 id="app-title-second" class="dancing-script-title">
-           Alicia 
-           <img src="./img/wedding-rings.svg" alt="Bagues de mariage" class="wedding-rings">
-           Metin
+          Alicia
+          <img src="./img/wedding-rings.svg" alt="Bagues de mariage" class="wedding-rings">
+          Metin
         </h1>
-        
+
         <p class="app-subtitle">Tapez votre nom pour trouver votre table.</p>
       </header>
 
