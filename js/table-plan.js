@@ -1,6 +1,7 @@
 import { searchResultsElement } from "./ui.js";
+import { getTablePlan } from "./services.js";
 
-export function renderTablePlan(numTable) {
+export async function renderTablePlan(numTable) {
     searchResultsElement.appendChild(renderTitle());
 
     const row = document.createElement('div');
@@ -8,7 +9,7 @@ export function renderTablePlan(numTable) {
 
     row.appendChild(renderStage());
     row.appendChild(renderEmptySpace());
-    row.appendChild(renderTables(numTable));
+    row.appendChild(await renderTables(numTable));
 
     searchResultsElement.appendChild(row);
 
@@ -23,32 +24,6 @@ function renderTitle() {
     return title;
 }
 
-function renderTables(numTable) {
-    // il faudrait avoir un fichier json
-    // qui définit la position des tables
-    // ex:
-    // table 1 est à la position 1
-    // table 25 est à la position 28
-    // Ce qui permettrait du coup de gérer les cas
-    // particulier plus aisément
-    if (numTable == 0) return;
-
-    const tableColumn = document.createElement('div');
-    tableColumn.className = 'table-column';
-
-    let tmp = 2;
-    for (let i = 0; i < 25; i++) {
-        if (i == 2 || (i >= 6 && i == tmp + 4)) {
-            tableColumn.appendChild(renderEmptySpace());
-            tmp = i == 2 ? tmp : tmp + 4;
-        }
-
-        tableColumn.appendChild(renderTableAtPosition(i, numTable));
-    }
-
-    return tableColumn;
-}
-
 function renderStage() {
     const stage = document.createElement('div');
     stage.className = 'stage';
@@ -57,23 +32,63 @@ function renderStage() {
     return stage;
 }
 
-function renderTableAtPosition(pos, numTable) {
-    pos += 1;
-    
-    const table = document.createElement('div');
-    table.className = pos == numTable ? 'table table-here' : 'table';
-    table.textContent = pos == numTable ? 'Tu es ici !' : pos;
-    table.id = "table-", pos;
-    return table;
+function getMaxTablePosition(data) {
+    let maxPos = 0;
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        if (maxPos < element.position) {
+            maxPos = element.position;
+        }
+    }
+    return maxPos;
 }
 
-function renderEmptySpace() {
+async function renderTables(numTable) {
+    const data = await getTablePlan();
+    const maxTablePosition = getMaxTablePosition(data);
+
+    const tableColumn = initGridWithEmptySpaces(maxTablePosition);
+
+    searchResultsElement.appendChild(tableColumn);
+
+    replaceEmptySpacesByTables(maxTablePosition, data, numTable);
+    
+    return tableColumn;
+}
+
+function initGridWithEmptySpaces(maxTablePosition) {
+    const tableColumn = document.createElement('div');
+    tableColumn.className = 'table-column';
+
+    for (let i = 0; i < maxTablePosition; i++) {
+        tableColumn.appendChild(renderEmptySpace(i + 1));
+        if (i % 4 == 1) {
+            tableColumn.appendChild(renderEmptySpace());
+        }
+    }
+
+    return tableColumn;
+}
+
+function renderEmptySpace(pos) {
     const emptyDiv = document.createElement('div');
     emptyDiv.className = 'empty-div';
+    if (pos) emptyDiv.setAttribute('data-pos', pos);
     return emptyDiv;
 }
 
+function replaceEmptySpacesByTables(maxTablePosition, data, numTable) {
+    for (let index = 0; index < maxTablePosition; index++) {
+        if (data[index]) {
+            const table = document.querySelector('[data-pos="' + data[index].position + '"]');
+            table.className = data[index].tableId == numTable ? 'table table-here' : 'table';
+            table.textContent = data[index].tableId == numTable ? 'Tu es ici !' : data[index].tableId;
+            table.id = "table-" + data[index].tableId;
+        }
+    }
+}
+
 function scrollToTable(numTable) {
-    const tableToFocus = document.getElementById("table-", numTable)
+    const tableToFocus = document.getElementById("table-" + numTable);
     tableToFocus.scrollIntoView({ behavior: 'smooth', block: 'start'});
 }
