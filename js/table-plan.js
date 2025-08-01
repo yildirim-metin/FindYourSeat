@@ -1,5 +1,6 @@
 import { searchResultsElement } from "./ui.js";
 import { getTablePlan } from "./services.js";
+import { langManager } from "../i18n/language-manager.js";
 
 export async function renderTablePlan(numTable) {
     searchResultsElement.appendChild(renderTitle());
@@ -13,22 +14,23 @@ export async function renderTablePlan(numTable) {
 
     searchResultsElement.appendChild(row);
 
+    langManager.updateContent();
+
     if(numTable) scrollToTable(numTable);
 }
 
 function renderTitle() {
     const title = document.createElement('h2');
-    title.textContent = 'Plan de table';
     title.className = 'dancing-script-title';
     title.id = 'table-plan-title';
+    title.setAttribute('data-i18n', 'tablePlanTitle');
     return title;
 }
 
 function renderStage() {
     const stage = document.createElement('div');
     stage.className = 'stage';
-    stage.textContent = 'Scène';
-
+    stage.setAttribute('data-i18n', 'stage');
     return stage;
 }
 
@@ -82,7 +84,8 @@ function replaceEmptySpacesByTables(maxTablePosition, data, numTable) {
         if (data[index]) {
             const table = document.querySelector('[data-pos="' + data[index].position + '"]');
             table.className = data[index].tableId == numTable ? 'table table-here' : 'table';
-            table.textContent = data[index].tableId == numTable ? 'Tu es ici !' : data[index].tableId;
+            table.setAttribute('data-i18n-table', 'yourHere');
+            langManager.updateTableContent(table, data[index].tableId, data[index].tableId == numTable);
             table.id = "table-" + data[index].tableId;
         }
     }

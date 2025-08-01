@@ -1,3 +1,5 @@
+import { langManager } from "../../i18n/language-manager.js";
+
 export class Guest {
     constructor(surname, name, hasConfirm, table) {
         this.surname = surname;
@@ -7,6 +9,7 @@ export class Guest {
     }
 
     fullName() {
-        return `${this.surname} ${this.name ? `et ${this.name}` : ''}`;
+        const and = langManager.getText('and');
+        return `${this.surname} ${this.name ? `${and} ${this.name}` : ''}`;
     }
 }

@@ -21,30 +21,23 @@
       <button data-lang="nl">Nederlands</button>
     </div>
 
-    <h1 data-i18n="welcome"></h1>
-    <nav>
-      <a href="#" data-i18n="home"></a>
-      <a href="#" data-i18n="about"></a>
-      <a href="#" data-i18n="contact"></a>
-    </nav>
-
     <div class="global-padding">
       <header class="app-header">
-        <h1 id="app-title-first" class="dancing-script-title">Bienvenue à notre Mariage</h1>
+        <h1 id="app-title-welcome" class="dancing-script-title" data-i18n="welcome"></h1>
         <h1 id="app-title-second" class="dancing-script-title">
           Alicia
           <img src="./img/wedding-rings.svg" alt="Bagues de mariage" class="wedding-rings">
           Metin
         </h1>
 
-        <p class="app-subtitle">Tapez votre nom pour trouver votre table.</p>
+        <p class="app-subtitle" data-i18n="enterYourName"></p>
       </header>
 
       <section class="search-section" aria-labelledby="search-label">
         <label id="search-label" class="sr-only" for="search-input">Rechercher votre nom</label>
-        <input id="search-input" class="search-input" type="text" placeholder="Votre nom..." autocomplete="off"
+        <input id="search-input" class="search-input" type="text" data-i18n-placeholder="inputPlaceHolder" autocomplete="off"
           inputmode="text" />
-        <button id="search-btn" class="btn-primary" type="button">Chercher</button>
+        <button id="search-btn" class="btn-primary" type="button" data-i18n="searchButton"></button>
       </section>
 
       <section id="results" class="results" aria-live="polite"></section>
