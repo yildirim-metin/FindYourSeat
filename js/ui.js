@@ -2,6 +2,7 @@ import { normalize, matchesGuest } from "./utils.js";
 import { GUESTS } from "./data-loader.js";
 import { renderTablePlan } from "./table-plan.js";
 import { langManager } from "../i18n/language-manager.js";
+import { appState } from "../utils/app-state.js";
 
 // ======== DOM refs ========
 export const searchInputElement = document.getElementById('search-input');
@@ -78,8 +79,9 @@ function showGuestTable(guest) {
   guestCard.appendChild(guestInfo);
   
   searchResultsElement.appendChild(guestCard);
+  appState.tableNumber = guest.table;
   renderOtherGuestOfTable(guest);
-
+  
   renderTablePlan(guest.table);
 }
 
@@ -136,15 +138,10 @@ function renderOtherGuestOfTable(guest) {
     && g.name != guest.name
     && g.surname != guest.surname);
 
-  let otherGuestsInfo = `<strong>${otherGuests[0].fullName()}</strong>`;
-  
-  let i = 1;
-  while (i < otherGuests.length) {
-    otherGuestsInfo = `${otherGuestsInfo}, <strong>${otherGuests[i].fullName()}</strong>`;
-    i++;
-  }
+  appState.otherGuests = otherGuests;
 
   const tableInfo = document.createElement('p');
+  tableInfo.id = "table-info";
   tableInfo.innerHTML = langManager.buildTableInfoText(guest.table, otherGuests);
 
   const guestCard = document.getElementById('guest-card');

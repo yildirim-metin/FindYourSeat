@@ -1,3 +1,4 @@
+import { appState } from "../utils/app-state.js";
 import { BaseTextBuilder, TurkishTextBuilder } from "../utils/text-builder.js";
 import { translations } from "./lang.js";
 
@@ -11,10 +12,6 @@ class LanguageManager {
         return this.currentLang === 'tr'
             ? new TurkishTextBuilder(this)
             : new BaseTextBuilder(this);
-    }
-
-    buildTableInfoText(tableNumber, otherGuests) {
-        return this.textBuilder.buildTableInfo(tableNumber, otherGuests);
     }
 
     setLanguage(lang) {
@@ -36,14 +33,9 @@ class LanguageManager {
         }
     }
 
-    updateContent() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            element.textContent = this.getText(key);
-        });
-        this.#updateInputPlaceholderContent();
-        this.updateTableContent();
-        this.buildTableInfoText();
+    #updateCurrentTableContent() {
+        const table = document.getElementById('table-' + appState.tableNumber);
+        this.updateTableContent(table, 0, true);
     }
 
     updateTableContent(table, tableId, isTableHere) {
@@ -55,6 +47,27 @@ class LanguageManager {
                 table.textContent = tableId;
             }
         }
+    }
+
+    buildTableInfoText(tableNumber, otherGuests) {
+        return this.textBuilder.buildTableInfo(tableNumber, otherGuests);
+    }
+
+    #buildCurrentTableInfoText() {
+        const tableInfo = document.getElementById("table-info");
+        if (tableInfo) {
+            tableInfo.innerHTML = this.buildTableInfoText(appState.tableNumber, appState.otherGuests);
+        }
+    }
+
+    updateContent() {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            element.textContent = this.getText(key);
+        });
+        this.#updateInputPlaceholderContent();
+        this.#updateCurrentTableContent();
+        this.#buildCurrentTableInfoText();
     }
 }
 
