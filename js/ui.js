@@ -1,6 +1,7 @@
 import { normalize, matchesGuest } from "./utils.js";
 import { GUESTS } from "./data-loader.js";
 import { renderTablePlan } from "./table-plan.js";
+import { langManager } from "../i18n/language-manager.js";
 
 // ======== DOM refs ========
 export const searchInputElement = document.getElementById('search-input');
@@ -144,9 +145,8 @@ function renderOtherGuestOfTable(guest) {
   }
 
   const tableInfo = document.createElement('p');
-  tableInfo.innerHTML = `Tu es à la <strong>Table ${guest.table}</strong>`;
-  tableInfo.innerHTML = `${tableInfo.innerHTML} avec ${otherGuestsInfo}`;
-  
+  tableInfo.innerHTML = langManager.buildTableInfoText(guest.table, otherGuests);
+
   const guestCard = document.getElementById('guest-card');
   guestCard.appendChild(tableInfo);
 }

@@ -13,7 +13,6 @@ function autoSearchFromURL() {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  console.log('DOM loaded');
   addOnClickEventForSettingLanguages();
   await loadGuests();
   autoSearchFromURL();

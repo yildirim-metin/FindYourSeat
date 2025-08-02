@@ -8,6 +8,9 @@ export const translations = {
         stage: "Scène",
         yourHere: "Tu es ici !",
         and: "et",
+        table: "table",
+        with: "avec",
+        youAreAt: "Tu es à la",
     },
     tr: {
         welcome: "Düğünümüze hoş geldiniz",
@@ -18,7 +21,9 @@ export const translations = {
         stage: "Sahne",
         yourHere: "Burdasın !",
         and: "ve",
-
+        table: "masa",
+        with: "ile",
+        youAreAt: "dasın",
     },
     it: {
         welcome: "Benvenuti al nostro matrimonio",
@@ -29,6 +34,9 @@ export const translations = {
         stage: "Scena",
         yourHere: "Tu sei qui !",
         and: "e",
+        table: "tavolo",
+        with: "con",
+        youAreAt: "tu sei alla",
     },
     nl: {
         welcome: "Welkom op onze bruiloft",
@@ -39,5 +47,8 @@ export const translations = {
         stage: "Podium",
         yourHere: "Je bent hier !",
         and: "en",
+        table: "tafel",
+        with: "met",
+        youAreAt: "je zit aan",
     }
 };

@@ -10,6 +10,6 @@ export class Guest {
 
     fullName() {
         const and = langManager.getText('and');
-        return `${this.surname} ${this.name ? `${and} ${this.name}` : ''}`;
+        return `${this.surname}${this.name ? ` ${and} ${this.name}` : ''}`;
     }
 }
