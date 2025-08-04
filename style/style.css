@@ -215,3 +215,19 @@ body {
   position: relative;
   bottom: -0.5rem;
 }
+
+#language-selector {
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+}
+
+#language-selector option {
+  font-size: 1rem;
+}
+
+#section-language {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 2vw;
+}

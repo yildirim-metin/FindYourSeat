@@ -29,10 +29,9 @@ searchInputElement.addEventListener('keydown', e => {
 showAllBtn.addEventListener('click', toggleAllList);
 
 function addOnClickEventForSettingLanguages() {
-  document.querySelectorAll('.language-switcher button').forEach(button => {
-    button.addEventListener('click', () => {
-      const lang = button.dataset.lang;
-      langManager.setLanguage(lang);
-    });
+  const selector = document.getElementById('language-selector');
+  selector.addEventListener('click', () => {
+    const lang = selector.value;
+    langManager.setLanguage(lang);
   });
 }
