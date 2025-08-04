@@ -2,54 +2,42 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plan de Table Mariage</title>
-  <meta name="description" content="Trouvez votre table de mariage en tapant votre nom." />
-  <link rel="stylesheet" href="./style/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your language</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/language-selection.css">
 </head>
 
 <body>
-  <main class="app-root">
-    <div class="global-padding">
-      <section id="section-language">
-        <select id="language-selector">
-          <option value="fr">🇫🇷 Français</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-          <option value="it">🇮🇹 Italiano</option>
-          <option value="nl">🇳🇱 Nederlands</option>
-        </select>
-      </section>
+    <main class="global-padding">
+        <h1 id="select-language-title"></h1>
 
-      <header class="app-header">
-        <h1 id="app-title-welcome" class="dancing-script-title" data-i18n="welcome"></h1>
-        <h1 id="app-title-second" class="dancing-script-title">
-          Alicia
-          <img src="./img/wedding-rings.svg" alt="Bagues de mariage" class="wedding-rings">
-          Metin
-        </h1>
+        <section id="section-language">
+            <div class="card" data-lang="fr">
+                <img class="img-in-card" src="./img/flag-france.svg" alt="flag of france">
+                <div class="text-in-card">Français</div>
+            </div>
 
-        <p class="app-subtitle" data-i18n="enterYourName"></p>
-      </header>
+            <div class="card" data-lang="tr">
+                <img class="img-in-card" src="./img/flag-turkiye.svg" alt="flag of turkiye">
+                <div class="text-in-card">Türkçe</div>
+            </div>
 
-      <section class="search-section" aria-labelledby="search-label">
-        <label id="search-label" class="sr-only" for="search-input">Rechercher votre nom</label>
-        <input id="search-input" class="search-input" type="text" data-i18n-placeholder="inputPlaceHolder"
-          autocomplete="off" inputmode="text" />
-        <button id="search-btn" class="btn-primary" type="button" data-i18n="searchButton"></button>
-      </section>
+            <div class="card" data-lang="it">
+                <img class="img-in-card" src="./img/flag-italy.svg" alt="flag of italy">
+                <div class="text-in-card">Italiano</div>
+            </div>
 
-      <section id="results" class="results" aria-live="polite"></section>
-    </div>
+            <div class="card" data-lang="nl">
+                <img class="img-in-card" src="./img/flag-netherlands.svg" alt="flag of netherlands">
+                <div class="text-in-card">Nederlands</div>
+            </div>
+        </section>
 
-    <footer class="app-footer">
-      <button id="show-all-btn" class="btn-link" type="button">Voir la liste complète (organisateurs)</button>
-      <div id="all-list-wrapper" class="all-list-wrapper hidden"></div>
-    </footer>
-  </main>
+    </main>
 
-  <script type="module" src="js/main.js"></script>
+    <script type="module" src="./js/language-selection.js"></script>
 </body>
+
+</html>

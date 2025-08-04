@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadGuests();
   autoSearchFromURL();
   await renderTablePlan();
+  langManager.updateLanguageSelectorValue();
   langManager.updateContent();
 });
 

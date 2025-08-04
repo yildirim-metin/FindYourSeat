@@ -60,6 +60,11 @@ class LanguageManager {
         }
     }
 
+    updateLanguageSelectorValue() {
+        const selector = document.getElementById('language-selector');
+        selector.value = this.currentLang;
+    }
+
     updateContent() {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
