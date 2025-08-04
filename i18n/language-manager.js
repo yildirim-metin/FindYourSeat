@@ -49,6 +49,17 @@ class LanguageManager {
         }
     }
 
+    buildTablePartText(tableNumber) {
+        return this.textBuilder.buildTableNumber(tableNumber);
+    }
+
+    #buildCurrentTablePartText() {
+        const tablePart = document.getElementById('p-table-part');
+        if (tablePart) {
+            tablePart.innerHTML = this.buildTablePartText(appState.tableNumber);
+        }
+    }
+
     buildTableInfoText(tableNumber, otherGuests) {
         return this.textBuilder.buildTableInfo(tableNumber, otherGuests);
     }
@@ -73,6 +84,7 @@ class LanguageManager {
         this.#updateInputPlaceholderContent();
         this.#updateCurrentTableContent();
         this.#buildCurrentTableInfoText();
+        this.#buildCurrentTablePartText();
     }
 }
 

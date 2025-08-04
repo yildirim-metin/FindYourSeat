@@ -59,7 +59,9 @@ function renderGuestCard(guest, highlight=false) {
   const h2 = document.createElement('h2');
   h2.textContent = guest.fullName();
   const p = document.createElement('p');
-  p.textContent = `Table ${guest.table ?? '?'}`;
+  p.id = "p-table-part";
+  p.innerHTML = langManager.buildTablePartText(guest.table);
+  appState.tableNumber = guest.table;
 
   div.appendChild(h2);
   div.appendChild(p);
