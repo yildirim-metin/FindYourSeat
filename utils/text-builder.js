@@ -10,6 +10,12 @@ export class BaseTextBuilder {
         );
     }
 
+    buildTableNumber(tableNumber) {
+        const tableWithCurrentLanguage = this.langManager.getText('table');
+        const tableText = tableWithCurrentLanguage.charAt(0).toUpperCase() + tableWithCurrentLanguage.slice(1);
+        return `${tableText} <strong>${tableNumber}</strong>`;
+    }
+
     buildTablePart(tableNumber) {
         return `${this.langManager.getText('youAreAt')}
              <strong>${this.langManager.getText('table')} ${tableNumber}</strong>`;
@@ -26,8 +32,12 @@ export class BaseTextBuilder {
 }
 
 export class TurkishTextBuilder extends BaseTextBuilder {
-    buildTablePart(tableNumber) {
+    buildTableNumber(tableNumber) {
         return `<strong>${tableNumber} numaralı</strong> ${this.langManager.getText('table')}`;
+    }
+
+    buildTablePart(tableNumber) {
+        return this.buildTableNumber(tableNumber);
     }
 
     buildGuestPart(guests) {
