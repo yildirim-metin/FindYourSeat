@@ -13,12 +13,12 @@ function autoSearchFromURL() {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  addOnClickEventForSettingLanguages();
-  await loadGuests();
-  autoSearchFromURL();
-  await renderTablePlan();
   langManager.updateLanguageSelectorValue();
   langManager.updateContent();
+  addOnClickEventForSettingLanguages();
+  await renderTablePlan();
+  await loadGuests();
+  autoSearchFromURL();
 });
 
 searchButtonElement.addEventListener('click', handleSearch);

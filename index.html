@@ -7,11 +7,23 @@
     <title>Select your language</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/language-selection.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main class="global-padding">
-        <h1 id="select-language-title"></h1>
+        <header class="app-header">
+            <h1 id="app-title-welcome" class="dancing-script-title" data-i18n="welcome"></h1>
+            <h1 id="app-title-second" class="dancing-script-title">
+                Alicia
+                <img src="./img/wedding-rings.svg" alt="Bagues de mariage" class="wedding-rings">
+                Metin
+            </h1>
+
+            <p id="select-language-title" class="app-subtitle"></p>
+        </header>
 
         <section id="section-language">
             <div class="card" data-lang="fr">

@@ -1,4 +1,7 @@
 export const translations = {
+    en: {
+        welcome: "Welcome to our wedding",
+    },
     fr: {
         welcome: "Bienvenue à notre mariage",
         enterYourName: "Tapez votre nom pour trouver votre table.",
@@ -12,19 +15,6 @@ export const translations = {
         with: "avec",
         youAreAt: "Tu es à la",
     },
-    tr: {
-        welcome: "Düğünümüze hoş geldiniz",
-        enterYourName: "Masanızı bulmak için adınızı yazın.",
-        inputPlaceHolder: "Adınız...",
-        searchButton: "Bulmak",
-        tablePlanTitle: "Masa düzeni",
-        stage: "Sahne",
-        yourHere: "Burdasın !",
-        and: "ve",
-        table: "masa",
-        with: "ile",
-        youAreAt: "dasın",
-    },
     it: {
         welcome: "Benvenuti al nostro matrimonio",
         enterYourName: "Digita il tuo nome per trovare il tuo tavolo.",
@@ -37,6 +27,19 @@ export const translations = {
         table: "tavolo",
         with: "con",
         youAreAt: "tu sei alla",
+    },
+    tr: {
+        welcome: "Düğünümüze hoş geldiniz",
+        enterYourName: "Masanızı bulmak için adınızı yazın.",
+        inputPlaceHolder: "Adınız...",
+        searchButton: "Bulmak",
+        tablePlanTitle: "Masa düzeni",
+        stage: "Sahne",
+        yourHere: "Burdasın !",
+        and: "ve",
+        table: "masa",
+        with: "ile",
+        youAreAt: "dasın",
     },
     nl: {
         welcome: "Welkom op onze bruiloft",

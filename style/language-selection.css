@@ -5,6 +5,10 @@ main {
     row-gap: 2rem;
 }
 
+.app-subtitle {
+    font-size: 1.2rem;
+}
+
 #section-language {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

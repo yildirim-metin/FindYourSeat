@@ -1,4 +1,5 @@
 import { langManager } from "../i18n/language-manager.js";
+import { translations } from "../i18n/lang.js";
 
 const titleTab = [
     'Choose your language',
@@ -24,12 +25,16 @@ function addOnClickEventForCards() {
 }
 
 function updateTitle() {
+    const translationKeys = Object.keys(translations);
+    const welcome = document.getElementById('app-title-welcome');
+    welcome.textContent = translations[translationKeys[0]]['welcome'];
+
     const title = document.getElementById('select-language-title');
     title.textContent = titleTab[0];
-
+    
     let i = 1;
     setInterval(() => {
-        const title = document.getElementById('select-language-title');
+        welcome.textContent = translations[translationKeys[i]]['welcome'];
         title.textContent = titleTab[i];
         i = (i + 1) % titleTab.length;
     }, 3000);
