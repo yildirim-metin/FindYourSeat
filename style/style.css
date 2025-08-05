@@ -220,6 +220,7 @@ body {
   font-size: 1.2rem;
   background-color: transparent;
   border: none;
+  outline: none;
 }
 
 #language-selector option {

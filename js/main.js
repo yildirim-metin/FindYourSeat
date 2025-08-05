@@ -34,7 +34,6 @@ function addOnClickEventForSettingLanguages() {
   if (!select) return;
 
   select.addEventListener('change', () => {
-    console.log('change: ', select.value);
     const lang = select.value;
     langManager.setLanguage(lang);
   });
