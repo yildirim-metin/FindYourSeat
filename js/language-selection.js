@@ -3,7 +3,7 @@ import { translations } from "../i18n/lang.js";
 
 const titleTab = [
     'Choose your language',
-    'Choisit ta langue',
+    'Choisis ta langue',
     'Scegli la tua lingua',
     'Dilini seç',
     'Kies je taal'
