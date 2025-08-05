@@ -30,10 +30,12 @@ searchInputElement.addEventListener('keydown', e => {
 showAllBtn.addEventListener('click', toggleAllList);
 
 function addOnClickEventForSettingLanguages() {
-  document.querySelectorAll('#language-selector option').forEach(option => {
-    option.addEventListener('click', () => {
-      const lang = option.value;
-      langManager.setLanguage(lang);
-    });
+  const select = document.querySelector('#language-selector');
+  if (!select) return;
+
+  select.addEventListener('change', () => {
+    console.log('change: ', select.value);
+    const lang = select.value;
+    langManager.setLanguage(lang);
   });
 }
