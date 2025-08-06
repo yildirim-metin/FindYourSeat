@@ -1,0 +1,2 @@
+export const RAW_URL_GUESTS = 'https://raw.githubusercontent.com/yildirim-metin/FindYourSeat/refs/heads/assets/guests.csv';
+export const RAW_URL_TABLE_PLAN = 'https://raw.githubusercontent.com/yildirim-metin/FindYourSeat/refs/heads/assets/table-plan.json';
