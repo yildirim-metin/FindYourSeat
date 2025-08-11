@@ -10,7 +10,7 @@ export async function loadGuests() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
 
-    GUESTS = parseCSV(text).filter(g => g.hasConfirmed);
+    GUESTS = parseCSV(text).filter(g => g.hasConfirmed && g.table != 0);
   } catch (err) {
     console.error('Erreur chargement guests.csv', err);
     showMessage("Impossible de charger la liste des invités.");
