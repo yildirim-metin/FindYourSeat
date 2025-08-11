@@ -137,7 +137,7 @@ function renderAllList() {
 function renderOtherGuestOfTable(guest) {
   const otherGuests = GUESTS.filter(g => 
     g.table === guest.table
-    && g.name != guest.name
+    && (g.name != guest.name || guest.name == '')
     && g.surname != guest.surname);
 
   appState.otherGuests = otherGuests;
