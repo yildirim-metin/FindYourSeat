@@ -64,9 +64,9 @@ function initGridWithEmptySpaces(maxTablePosition) {
 
     for (let i = 0; i < maxTablePosition; i++) {
         tableColumn.appendChild(renderEmptySpace(i + 1));
-        if (i % 4 == 1) {
-            tableColumn.appendChild(renderEmptySpace());
-        }
+        // if (i % 5 == 1) {
+        //     tableColumn.appendChild(renderEmptySpace());
+        // }
     }
 
     return tableColumn;
