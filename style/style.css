@@ -167,11 +167,11 @@ body {
   justify-content: center;
   font-size: clamp(0.8rem, 2vw, 1.2rem);
   font-weight: bold;
-  /* color: #ffa7b4; */
   background-color: #fafafa;
 }
 
 .table-here {
+  font-size: clamp(0.55rem, 1vw, 1.2rem);
   background-color: var(--color-table-here);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-outline) 30%, transparent);
 }
