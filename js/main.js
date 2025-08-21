@@ -1,4 +1,4 @@
-import { searchInputElement, searchButtonElement, handleSearch, toggleAllList, showAllBtn } from './ui.js';
+import { searchInputElement, searchButtonElement, handleSearch } from './ui.js';
 import { loadGuests } from "./data-loader.js";
 import { renderTablePlan } from './table-plan.js';
 import { langManager } from "../i18n/language-manager.js";
@@ -27,7 +27,6 @@ searchInputElement.addEventListener('keydown', e => {
     handleSearch();
   }
 });
-showAllBtn.addEventListener('click', toggleAllList);
 
 function addOnClickEventForSettingLanguages() {
   const select = document.querySelector('#language-selector');

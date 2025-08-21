@@ -8,8 +8,6 @@ import { appState } from "../utils/app-state.js";
 export const searchInputElement = document.getElementById('search-input');
 export const searchButtonElement = document.getElementById('search-btn');
 export const searchResultsElement = document.getElementById('results');
-export const showAllBtn = document.getElementById('show-all-btn');
-export const allListWrapper = document.getElementById('all-list-wrapper');
 
 export function handleSearch() {
   const q = searchInputElement.value;
@@ -85,53 +83,6 @@ function showGuestTable(guest) {
   renderOtherGuestOfTable(guest);
   
   renderTablePlan(guest.table);
-}
-
-export function toggleAllList() {
-  if (allListWrapper.classList.contains('hidden')) {
-    renderAllList();
-    allListWrapper.classList.remove('hidden');
-    showAllBtn.textContent = 'Masquer la liste';
-  } else {
-    allListWrapper.classList.add('hidden');
-    showAllBtn.textContent = 'Voir la liste complète (organisateurs)';
-  }
-}
-
-function renderAllList() {
-  allListWrapper.innerHTML = '';
-  if (!GUESTS.length) {
-    allListWrapper.textContent = 'Aucune donnée.';
-    return;
-  }
-  const tbl = document.createElement('table');
-  tbl.className = 'all-list-table';
-
-  const thead = document.createElement('thead');
-  thead.innerHTML = `
-    <tr>
-      <th>Prénom (femme)</th>
-      <th>Nom (homme)</th>
-      <th>Table</th>
-    </tr>`;
-  tbl.appendChild(thead);
-
-  const tbody = document.createElement('tbody');
-  const sorted = [...GUESTS].sort((a,b) => {
-    const ap = normalize(a.surname), bp = normalize(b.surname);
-    if (ap < bp) return -1; if (ap > bp) return 1;
-    return 0;
-  });
-  sorted.forEach(g => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${g.surname ?? ''}</td>
-      <td>${g.name ?? ''}</td>
-      <td>${g.table ?? ''}</td>`;
-    tbody.appendChild(tr);
-  });
-  tbl.appendChild(tbody);
-  allListWrapper.appendChild(tbl);
 }
 
 function renderOtherGuestOfTable(guest) {

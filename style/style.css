@@ -79,16 +79,6 @@ body {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-outline) 30%, transparent);
 }
 
-.btn-link {
-  background: none;
-  border: none;
-  color: var(--color-accent);
-  font-size: 0.9rem;
-  text-decoration: underline;
-  cursor: pointer;
-  margin-top: var(--space-lg);
-}
-
 .results {
   margin-top: var(--space-lg);
   min-height: 4rem;
@@ -121,26 +111,6 @@ body {
   border-radius: var(--radius);
   text-align: center;
   color: var(--color-muted);
-}
-
-.all-list-wrapper {
-  margin-top: var(--space-md);
-}
-.all-list-wrapper.hidden { display: none; }
-
-.all-list-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: var(--space-sm);
-  font-size: 0.95rem;
-}
-.all-list-table th, .all-list-table td {
-  border: 1px solid var(--color-border);
-  padding: var(--space-xs) var(--space-sm);
-  text-align: left;
-}
-.all-list-table th {
-  background: #f7f7f7;
 }
 
 .sr-only {
