@@ -1,8 +1,10 @@
 export const translations = {
     en: {
+        pageTitle: "Table plan",
         welcome: "Welcome to our wedding",
     },
     fr: {
+        pageTitle: "Plan de table",
         welcome: "Bienvenue à notre mariage",
         enterYourName: "Tapez votre nom pour trouver votre table.",
         inputPlaceHolder: "Votre nom...",
@@ -16,6 +18,7 @@ export const translations = {
         youAreAt: "Tu es à la",
     },
     it: {
+        pageTitle: "Disposizione dei tavoli",
         welcome: "Benvenuti al nostro matrimonio",
         enterYourName: "Digita il tuo nome per trovare il tuo tavolo.",
         inputPlaceHolder: "Il tuo nome...",
@@ -29,6 +32,7 @@ export const translations = {
         youAreAt: "tu sei alla",
     },
     tr: {
+        pageTitle: "Masa düzeni",
         welcome: "Düğünümüze hoş geldiniz",
         enterYourName: "Masanızı bulmak için adınızı yazın.",
         inputPlaceHolder: "Adınız...",
@@ -42,6 +46,7 @@ export const translations = {
         youAreAt: "dasın",
     },
     nl: {
+        pageTitle: "Zitplan",
         welcome: "Welkom op onze bruiloft",
         enterYourName: "Typ uw naam om uw tafel te vinden.",
         inputPlaceHolder: "Uw naam...",
