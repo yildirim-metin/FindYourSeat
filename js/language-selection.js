@@ -10,6 +10,8 @@ const titleTab = [
 ];
 
 window.addEventListener('DOMContentLoaded', async () => {
+    langManager.setLanguage('en');
+    langManager.updateContent();
     addOnClickEventForCards();
     updateTitle();
 });
@@ -37,5 +39,7 @@ function updateTitle() {
         welcome.textContent = translations[translationKeys[i]]['welcome'];
         title.textContent = titleTab[i];
         i = (i + 1) % titleTab.length;
+        langManager.setLanguage(translationKeys[i]);
+        langManager.updateContent();
     }, 3000);
 }
